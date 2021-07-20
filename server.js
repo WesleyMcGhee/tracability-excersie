@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(rollbar.errorHandler());
 app.use(cors())
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, './public/index.html'));
+    res.sendFile(path.join(__dirname, './public'));
     rollbar.info("html file served successfully");
 })
 app.get('/api/qoutes', (req, res) => {
