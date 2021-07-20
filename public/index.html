@@ -10,23 +10,36 @@
     <h1>Generate Qoutes</h1>
     <h2 id="qoute"></h2>
     <button id="qoute-btn">Generate Qoutes</button>
+    <h3>Add Qoute</h3>
+    <form id="qouteForm">
+        <input id="qouteInput" type="text">
+        <button>Submit</button>
+    </form>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
         const qoute = document.querySelector('#qoute');
-const qouteBtn = document.querySelector('#qoute-btn');
+        const qouteBtn = document.querySelector('#qoute-btn');
+        const qouteInput = doucment.querySelector('#qouteInput');
+        const qouteForm = doucment.querySelector('#qouteForm');
+        const randNum = (num) => {
+            return Math.floor((Math.random() * num));
+        }
 
-const randNum = (num) => {
-    return Math.floor((Math.random() * num));
-}
+        const getQoute=  () => {
+            axios.get('/api/qoutes').then((res) => {
+                const index = randNum(res.data.length);
+                qoute.textContent = res.data[index].qoute
+            })
+        }
+        const postQoute = () => {
+            axios.post('/api/qoutes', { qoute: qouteInput.value }).then((res) => {
 
-const getQoute=  () => {
-    axios.get('/api/qoutes').then((res) => {
-        const index = randNum(res.data.length);
-        qoute.textContent = res.data[index].qoute
-    })
-}
-
-qouteBtn.addEventListener('click', getQoute);
+            }).catch((err) => {
+                consoel.log(err);
+            })
+        }
+        qouteBtn.addEventListener('click', getQoute);
+        qouteForm.addEventListener('click', postQoute);
     </script>
 </body>
 </html>
