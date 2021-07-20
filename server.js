@@ -21,6 +21,7 @@ app.get("/", (req, res) => {
 })
 app.get('/api/qoutes', (req, res) => {
   res.status(200).send(data);
+  rollbar.log('Qoute successfuly generated');
 });
 
 const port = process.env.PORT || 4000;
