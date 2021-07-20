@@ -31,7 +31,8 @@
                 qoute.textContent = res.data[index].qoute
             })
         }
-        const postQoute = () => {
+        const postQoute = (e) => {
+            e.preventDefault();
             axios.post('/api/qoutes', { qoute: qouteInput.value }).then((res) => {
 
             }).catch((err) => {
