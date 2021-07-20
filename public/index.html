@@ -20,7 +20,7 @@
         const qoute = document.querySelector('#qoute');
         const qouteBtn = document.querySelector('#qoute-btn');
         const qouteInput = doucment.querySelector('#qouteInput');
-        const qouteForm = doucment.querySelector('#qouteForm');
+        const qouteForm = doucument.querySelector('#qouteForm');
         const randNum = (num) => {
             return Math.floor((Math.random() * num));
         }
@@ -39,7 +39,7 @@
             })
         }
         qouteBtn.addEventListener('click', getQoute);
-        qouteForm.addEventListener('click', postQoute);
+        qouteForm.addEventListener('submit', postQoute);
     </script>
 </body>
 </html>
