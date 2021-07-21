@@ -24,7 +24,7 @@ app.get('/api/qoutes', (req, res) => {
   res.status(200).send(data);
   rollbar.info('Qoute successfuly generated');
 });
-app.post('api/qoutes', (req, res) => {
+app.post('/api/qoutes', (req, res) => {
   let { qoute } = req.body;
 
   const index = data.findIndex((qouteTitle) => {
